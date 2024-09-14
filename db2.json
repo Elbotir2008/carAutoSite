@@ -1,0 +1,94 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "message": "Hello, how are you?",
+      "username": "user1",
+      "clock": "14:30"
+    },
+    {
+      "id": 2,
+      "message": "I am good, thanks!",
+      "username": "user2",
+      "clock": "14:35"
+    },
+    {
+      "id": 3,
+      "message": "What are you doing?",
+      "username": "user1",
+      "clock": "14:40"
+    },
+    {
+      "id": 4,
+      "message": "Just working on a project.",
+      "username": "user3",
+      "clock": "14:45"
+    },
+    {
+      "id": 5,
+      "message": "That's great!",
+      "username": "user1",
+      "clock": "14:50"
+    },
+    {
+      "id": 6,
+      "message": "How about you?",
+      "username": "user2",
+      "clock": "14:55"
+    },
+    {
+      "id": 7,
+      "message": "I'm reading a book.",
+      "username": "user4",
+      "clock": "15:00"
+    },
+    {
+      "id": 8,
+      "message": "Which book?",
+      "username": "user1",
+      "clock": "15:05"
+    },
+    {
+      "id": 9,
+      "message": "It's about programming.",
+      "username": "user4",
+      "clock": "15:10"
+    },
+    {
+      "id": 10,
+      "message": "That sounds interesting!",
+      "username": "user2",
+      "clock": "15:15"
+    },
+    {
+      "id": 11,
+      "message": "Yes, it is!",
+      "username": "user4",
+      "clock": "15:20"
+    },
+    {
+      "id": 12,
+      "message": "Do you want to grab a coffee later?",
+      "username": "user3",
+      "clock": "15:25"
+    },
+    {
+      "id": 13,
+      "message": "Sure, why not!",
+      "username": "user1",
+      "clock": "15:30"
+    },
+    {
+      "id": 14,
+      "message": "Let's meet at the usual place.",
+      "username": "user3",
+      "clock": "15:35"
+    },
+    {
+      "id": 15,
+      "message": "See you there!",
+      "username": "user2",
+      "clock": "15:40"
+    }
+  ]
+}
