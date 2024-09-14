@@ -32,8 +32,8 @@ const Aside: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname === "/personalAccount") {
-      navigate("/personalAccount/savedCards");
+    if (location.pathname === "/") {
+      navigate("/savedCards");
     }
   }, [location, navigate]);
 
@@ -80,27 +80,27 @@ const Aside: React.FC = () => {
         </ul>
       </div>
       <div className="asideProfileBtns">
-        <Link to={"/personalAccount/savedCards"}>
+        <Link to={"/savedCards"}>
           <button>
             <img src="/star.svg" alt="Error" /> Избранное
           </button>
         </Link>
-        <Link to={"/personalAccount/message"}>
+        <Link to={"/message"}>
           <button>
             <img src="/message.svg" alt="Error" /> Сообщения
           </button>
         </Link>
-        <Link to={"/personalAccount/placeAd"}>
+        <Link to={"/placeAd"}>
           <button>
             <img src="/asideSelect.svg" alt="Error" /> Разместить объявление{" "}
           </button>
         </Link>
-        <Link to={"/personalAccount/tariff"}>
+        <Link to={"/tariff"}>
           <button>
             <img src="/elec.svg" alt="Error" /> Тариф
           </button>
         </Link>
-        <Link to={"/personalAccount/accauntSettings"}>
+        <Link to={"/accauntSettings"}>
           <button>
             <img src="/settings.svg" alt="Error" /> Настройки аккаунта
           </button>

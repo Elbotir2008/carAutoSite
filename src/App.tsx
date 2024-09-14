@@ -10,7 +10,7 @@ function App() {
         <Header />
         <Routes>
           {/* PersonalAccount sahifasi va uning ichki yo'nalishlari uchun /* belgilang */}
-          <Route path="/personalAccount/*" element={<PersonalAccount />} />
+          <Route path="/*" element={<PersonalAccount />} />
         </Routes>
         <Footer />
       </BrowserRouter>
