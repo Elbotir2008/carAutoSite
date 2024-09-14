@@ -3,8 +3,6 @@ import "./messages.scss";
 import axios from "axios";
 import { Car } from "../../../components/types/types";
 import CardError from "../../../components/cardError/CardError";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Badge from "@mui/material/Badge";
 
 const Messages = () => {

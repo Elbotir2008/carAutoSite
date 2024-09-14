@@ -2,7 +2,6 @@ import "./savedCards.scss";
 import { Car } from "../../../components/types/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import CardError from "../../../components/cardError/CardError";
 const SavedCards = () => {
   const [isSavedCards, setIsSavedCards] = useState(false);
