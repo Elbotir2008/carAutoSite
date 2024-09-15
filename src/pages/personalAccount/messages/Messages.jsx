@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./messages.scss";
 import axios from "axios";
-import { Car } from "../../../components/types/types";
 import CardError from "../../../components/cardError/CardError";
 import Badge from "@mui/material/Badge";
 
@@ -11,8 +10,8 @@ const Messages = () => {
 
   const fetchCarsApi = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/cars?_limit=4");
-      const data = await res.data;
+      const res = await axios.get("https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars?page=1&limit=3");
+      const data = await res.data;  
       setCarsData(data);
       setIsSavedCards(true);
     } catch (error) {
@@ -30,7 +29,7 @@ const Messages = () => {
       <h1>Сообщения</h1>
       {isSavedCards ? (
         <div className="messagesCards">
-          {carsData.map((car: Car) => (
+          {carsData.map((car) => (
             <div key={car.id} className="messagesCard flex-class">
               <div className="messagesCardLeft flex-class">
                 <Badge

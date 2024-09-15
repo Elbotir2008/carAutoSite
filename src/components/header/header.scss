@@ -128,3 +128,128 @@
     }
   }
 }
+
+.profileInf {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .logoImg {
+    margin-right: 1rem;
+  }
+
+  .defaultLogoImg {
+    width: 50px;
+    height: 50px;
+    background-color: #d8d8d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #fff;
+  }
+
+  .profileText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #6c757d;
+    }
+  }
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  z-index: 1000;
+
+  .profileDropdown-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #f0f0f0;
+
+    .profile-img {
+      margin-right: 1rem;
+      .defaultLogoImg {
+        width: 50px;
+        height: 50px;
+        background-color: #d8d8d8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.6rem;
+        color: #fff;
+      }
+    }
+
+    .profile-info {
+      p {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #333;
+      }
+
+      .profileTarif {
+        font-size: 1.2rem;
+        color: #6c757d;
+      }
+    }
+  }
+
+  .profile-links {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      font-size: 1.4rem;
+      color: #333;
+      cursor: pointer;
+
+      img {
+        width: 20px;
+      }
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    &:hover {
+      background-color: #e2e6ea;
+    }
+  }
+}

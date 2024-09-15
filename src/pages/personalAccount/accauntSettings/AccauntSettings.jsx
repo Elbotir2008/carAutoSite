@@ -1,30 +1,33 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import "./accauntSettings.scss";
-import { AccauntSettingsState } from "../../../components/types/types";
 
-const AccauntSettings: React.FC = () => {
-  const [userData, setUserData] = useState<AccauntSettingsState>({
+const AccauntSettings = () => {
+  const [userData, setUserData] = useState({
     name: "",
     email: "",
     oldPassword: "",
     newPassword: "",
     confirmNewPassword: "",
+    password: "",
+    tariff: "",
   });
 
-  const [originalUserData, setOriginalUserData] = useState<AccauntSettingsState>({
+  const [originalUserData, setOriginalUserData] = useState({
     name: "",
     email: "",
     oldPassword: "",
     newPassword: "",
     confirmNewPassword: "",
+    password: "",
+    tariff: ""
   });
 
   const navigate = useNavigate();
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/cars/2"); // ID 2 uchun o'zgartiring
+      const response = await fetch("https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars/1"); // ID 2 uchun o'zgartiring
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -35,6 +38,8 @@ const AccauntSettings: React.FC = () => {
         oldPassword: "",
         newPassword: "",
         confirmNewPassword: "",
+        password: "",
+        tariff: "",    
       });
       setOriginalUserData({
         name: data.user.name || "",
@@ -42,6 +47,8 @@ const AccauntSettings: React.FC = () => {
         oldPassword: "",
         newPassword: "",
         confirmNewPassword: "",
+        password: "",
+        tariff: ""    
       });
     } catch (error) {
       console.error("Failed to fetch user data:", error);
@@ -52,7 +59,7 @@ const AccauntSettings: React.FC = () => {
     fetchUserData();
   }, []);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
@@ -60,7 +67,7 @@ const AccauntSettings: React.FC = () => {
     }));
   };
 
-  const handleAccountUpdate = async (e: FormEvent<HTMLFormElement>) => {
+  const handleAccountUpdate = async (e) => {
     e.preventDefault();
     try {
       const updatedUser = {
@@ -73,7 +80,7 @@ const AccauntSettings: React.FC = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:3000/cars/2", { // ID 2 uchun o'zgartiring
+      const response = await fetch("https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars/1", { // ID 2 uchun o'zgartiring
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -94,14 +101,14 @@ const AccauntSettings: React.FC = () => {
     }
   };
 
-  const handlePasswordChange = async (e: FormEvent<HTMLFormElement>) => {
+  const handlePasswordChange = async (e) => {
     e.preventDefault();
     if (userData.newPassword !== userData.confirmNewPassword) {
       console.error("New passwords do not match.");
       return;
     }
     try {
-      const response = await fetch("http://localhost:3000/cars/2", { 
+      const response = await fetch("https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars/1", { 
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

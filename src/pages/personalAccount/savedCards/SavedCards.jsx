@@ -1,5 +1,4 @@
 import "./savedCards.scss";
-import { Car } from "../../../components/types/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardError from "../../../components/cardError/CardError";
@@ -9,7 +8,7 @@ const SavedCards = () => {
 
   const fetchCarsApi = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/cars?_limit=4");
+      const res = await axios.get("https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars?page=1&limit=4");
       const data = await res.data;
       setCarsData(data);
       setIsSavedCards(true);
@@ -31,7 +30,7 @@ const SavedCards = () => {
         <h1>Избранное</h1>
         {isSavedCards ? (
           <div className="savedCards grid-class">
-            {carsData.map((car: Car) => (
+            {carsData.map((car) => (
               <div key={car.id} className="savedCard">
                 <img
                   src="/savedCardCar.svg"

@@ -2,27 +2,23 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./aside.scss";
 import { useEffect, useState } from "react";
 
-interface User {
-  name: string;
-  email: string;
-  tariff: string;
-}
-
-const Aside: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
+const Aside = () => {
+  const [user, setUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State to toggle dropdown
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // JSON serverdan faqat birinchi avtomobil ma'lumotlarini olish
-        const response = await fetch("http://localhost:3000/cars/1");
+        const response = await fetch(
+          "https://668b0ea52c68eaf3211e8742.mockapi.io/api/v1/cars/1"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setUser(data.user); // Faonly `user` ma'lumotlarini olish
+        setUser(data.user);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -38,18 +34,25 @@ const Aside: React.FC = () => {
   }, [location, navigate]);
 
   if (!user) {
-    return <div>Loading...</div>; // Loading holati uchun
+    return <div>Loading...</div>;
   }
 
-  // User name'ni bosh harflari olish
-  const getInitials = (name: string) => {
+  const getInitials = (name) => {
     const names = name?.split(" ");
-    const initials = names?.map(name => name.charAt(0)).join("");
+    const initials = names?.map((name) => name.charAt(0)).join("");
     return initials?.toUpperCase();
   };
 
+  // Function to toggle dropdown
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
-    <aside className="personalAccountAside">
+    <aside
+      className="personalAccountAside"
+      style={dropdownOpen ? { height: "65rem" } : {}}
+    >
       <div className="asideProfileInf flex-class">
         <div className="profileImg">
           <h1>{getInitials(user.name)}</h1>
@@ -63,15 +66,12 @@ const Aside: React.FC = () => {
         <ul>
           <li>
             E-mail
-            <a href={`mailto:${user.email}`}>
-              {user.email}
-            </a>
+            <a href={`mailto:${user.email}`}>{user.email}</a>
           </li>
           <li className="flex-class">
             Тариф
             <div className="asideTarif">
               <a href="#">
-                {" "}
                 <img src="/i.svg" alt="Error" />
                 {user.tariff}
               </a>
@@ -90,11 +90,25 @@ const Aside: React.FC = () => {
             <img src="/message.svg" alt="Error" /> Сообщения
           </button>
         </Link>
-        <Link to={"/placeAd"}>
-          <button>
-            <img src="/asideSelect.svg" alt="Error" /> Разместить объявление{" "}
-          </button>
-        </Link>
+        <button onClick={toggleDropdown}>
+          <img src="/asideSelect.svg" alt="Error" /> Разместить объявление{" "}
+          <span
+            style={
+              dropdownOpen
+                ? { transform: "rotate(270deg) translateY(5px)" }
+                : { transform: "rotate(90deg) translateY(-5px)" }
+            }
+          >
+            &gt;
+          </span>
+        </button>
+        {dropdownOpen && (
+          <div className="dropdown">
+            <button onClick={() => navigate("/placeAd")}>
+              <img src="/asideSelect.svg" alt="Error" /> Мои Объявления
+            </button>
+          </div>
+        )}
         <Link to={"/tariff"}>
           <button>
             <img src="/elec.svg" alt="Error" /> Тариф
