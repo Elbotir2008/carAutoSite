@@ -27,11 +27,11 @@ const Aside = () => {
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      navigate("/savedCards");
-    }
-  }, [location, navigate]);
+  // useEffect(() => {
+  //   if (location.pathname === "/") {
+  //     navigate("/");
+  //   }
+  // }, [location, navigate]);
 
   if (!user) {
     return <div>Loading...</div>;
@@ -80,7 +80,7 @@ const Aside = () => {
         </ul>
       </div>
       <div className="asideProfileBtns">
-        <Link to={"/savedCards"}>
+        <Link to={"/"}>
           <button>
             <img src="/star.svg" alt="Error" /> Избранное
           </button>
