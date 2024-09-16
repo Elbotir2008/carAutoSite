@@ -49,7 +49,7 @@ const Messages = () => {
                     </h2>{" "}
                   </div>
                 </Badge>
-                <div className="profileInf">
+                <div className="profileInf2">
                   <h3>{car.user.name}</h3>
                   <p>{car.message.content}</p>
                 </div>

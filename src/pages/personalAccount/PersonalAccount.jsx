@@ -12,7 +12,7 @@ const PersonalAccount = () => {
       <Aside />
       <div className="routes">
         <Routes>
-          <Route path="/" element={<SavedCards />} />
+          <Route path="/savedCards" element={<SavedCards />} />
           <Route path="message" element={<Messages />} />
           <Route path="placeAd" element={<PlaceAd />} />
           <Route path="tariff" element={<Tariff />} />
